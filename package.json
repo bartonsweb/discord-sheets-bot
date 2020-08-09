@@ -1,0 +1,27 @@
+{
+  "name": "sheets-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot to integrate with a custom Google sheet!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "lint": "eslint --fix . && echo 'Lint complete.'"
+  },
+  "keywords": [],
+  "author": "Erielia",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "discord.js-commando": "github:discordjs/Commando",
+    "dotenv": "^8.2.0",
+    "google-spreadsheet": "^3.0.11",
+    "prettier": "^2.0.5",
+    "simple-node-logger": "^18.12.24"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4"
+  }
+}

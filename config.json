@@ -1,0 +1,10 @@
+{
+	"prefix": "!",
+	"owner": "240183816092778496",
+	"whitelist" : {
+		"swornEnemy": [ "Semper Fi", "Into the Fire", "SF2" ],
+		"semperFi": [ "Sworn Enemy" ],
+		"deadlyPoison": [ "No Alli"],
+		"rejuvenation": [ "Rejuvenation" ]
+	}
+}
