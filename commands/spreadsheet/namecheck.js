@@ -1,20 +1,18 @@
 const { Command } = require('discord.js-commando');
 
-
 function buildMsgInfo(players) {
   let data = [];
-  let string1 = '', string2 = '', str = '', i = 0;
+  let string1 = '', string2 = '', str = '';
 
-  let playersWithHb = players.filter(player => player.Homebase && player.Name)
+  let playersWithHb = players.filter(player => player.Homebase && player.Name);
 
   playersWithHb.forEach((player) => {
-    str = `${data[i] && data[i] || ''} ${player.Name} ${player.Homebase}/`
 
+    str = `${player.Name} ${player.Homebase}/`;
     if ( str.length <= 90 ) {
-        data[i] = `${data[i] && data[i] || ''} ${player.Name} ${player.Homebase}/`
+        string1 += `${player.Name} ${player.Homebase}/`;
     } else {
-        i++
-        data[i] = `${player.Name} ${player.Homebase}/`
+        string2 += `${player.Name} ${player.Homebase}/`;
     }
 
   });
@@ -27,6 +25,7 @@ module.exports = class acCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'namecheck',
+      aliases: ['alliancehbs', 'homebases'],
 			group: 'spreadsheet',
 			memberName: 'namecheck',
 			description: 'List all players who have a HB coord + their name for name change checks.',
