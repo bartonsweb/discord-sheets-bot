@@ -2,10 +2,16 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { getByValue } = require('./utilFuncs.js');
 
 function equalsIgnoringCase(text, other) {
+    if ( !text ) return false
     let str = text.replace(/\s?$/,'');
     return str.localeCompare(other, 'en', { sensitivity: 'base' }) === 0;
 }
 
+/**
+ * 
+ * @param {String} alias string of alias to check 
+ * @param {String} playerName name to check 
+ */
 function aliasMatch(alias, playerName) {
   if ( alias === undefined || alias.length <= 0 ) return false
   let names = alias.split(', ')
@@ -15,28 +21,6 @@ function aliasMatch(alias, playerName) {
   })
   return match
 }
-
-const bases = [
-  'Homebase',
-  'Alpha',
-  'Bravo',
-  'Charlie',
-  'Delta',
-  'Echo',
-  'Foxtrot',
-  'Tango',
-  'Romeo',
-  'Victor',
-  'Zulu',
-];
-
-const prefixMap = {
-  O34: 'Old 34 Sub',
-  N34: 'New 34 Sub',
-  O38: 'Old 38 Sub',
-  N38: 'New 38 Sub',
-  P: 'Port base',
-};
 
 class GoogleSheet {
     constructor(client) {
@@ -81,7 +65,12 @@ class GoogleSheet {
     async getAllianceName(query) {
       const allysheet = this.doc.sheetsById[1574653053];
       const allyRows = await allysheet.getRows();
-      const allyRow = [...new Set(allyRows.filter(row => equalsIgnoringCase(row.Alliance, query) || aliasMatch(row.allianceAlias, query) || row.allianceAbbr === query ))]
+      const allyRow = [...new Set(allyRows.filter(row => {
+        if ( equalsIgnoringCase(row.Alliance, query) ) return row
+        if ( aliasMatch(row.allianceAlias, query) ) return row
+        if ( equalsIgnoringCase(row.allianceAbbr, query) ) return row
+        return false
+      }))]
       return allyRow ? allyRow[0].Alliance : undefined
     }
 

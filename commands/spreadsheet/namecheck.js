@@ -14,17 +14,13 @@ function buildMsgInfo(players) {
   }, []);
 
   playersWithHb.forEach((player) => {
-    console.log(player)
-
     str = `${data[i] ? data[i] : ''} ${player.Name} ${player.Homebase}/`;
-    console.log(str)
     if ( str.length <= 100 ) {
         data[i] = str;
     } else {
         data[i + 1] = `${player.Name} ${player.Homebase}/`;
         i++;
     }
-
   });
   return data;
 }

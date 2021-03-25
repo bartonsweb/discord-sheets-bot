@@ -49,13 +49,13 @@ function buildPlayerInfo(playerData) {
   return data;
 }
 
-module.exports = class acCommand extends Command {
+module.exports = class inroleCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'ac',
-			group: 'spreadsheet',
-			memberName: 'ac',
-			description: 'List alliance chat pasteable string for [player]. Split by AC character limit.',
+			name: 'inrole',
+			group: 'roles',
+			memberName: 'inrole',
+			description: 'List all members in a role.',
 			guildOnly: true,
       throttling: {
             usages: 5,
@@ -63,13 +63,13 @@ module.exports = class acCommand extends Command {
       },
 			args: [
 				{
-					key: 'player',
-					prompt: 'Which player would you like to lookup?',
+					key: 'role',
+					prompt: 'Which role would you like to lookup?',
 					type: 'string',
 				},
 			],
 		});
-    this.roles = ['Member', 'BotAccess', 'botSemperFi', 'botDeadlyPoison'];
+    this.roles = ['Member', 'BotAccess'];
   }
 
   hasPermission(message) {

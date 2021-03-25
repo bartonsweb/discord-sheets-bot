@@ -20,6 +20,7 @@ const prefixMap = {
   O38: 'Old 38 Sub',
   N38: 'New 38 Sub',
   P: 'Port base',
+  C: 'Center base',
 };
 
 function buildPlayerInfo(message, playerData) {
@@ -114,7 +115,6 @@ module.exports = class playerCommand extends Command {
           if(message.member.roles.cache.some(r => r.name === 'botSemperFi') && !swornEnemyWhitelist.includes(data.Alliance)) {
             return message.channel.send('You may only search for Semper Fi players. Try again.');
           } else if (message.member.roles.cache.some(r => r.name === 'botDeadlyPoison') && !deadlyPoisonWhitelist.includes(data.Alliance)) {
-            //console
             return message.channel.send('You may only search for Deadly Poison players here. Try again.');
           } else {
   	        return message.channel.send(buildPlayerInfo(message, data), { split: true });

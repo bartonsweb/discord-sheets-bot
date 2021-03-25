@@ -54,7 +54,6 @@ module.exports = class acCommand extends Command {
           if(message.member.roles.cache.some(r => r.name === 'botSemperFi') && !swornEnemyWhitelist.includes(data.Alliance)) {
             return message.channel.send('You may only search for Semper Fi players. Try again. Dick.');
           } else if (message.member.roles.cache.some(r => r.name === 'botDeadlyPoison') && !deadlyPoisonWhitelist.includes(data.Alliance)) {
-            //console
             return message.channel.send('You may only search for Deadly Poison players here. Try again. Dick.');
           } else {
             return message.channel.send(buildPlayerInfo(message, data, player), { split: true });

@@ -6,5 +6,8 @@
 		"semperFi": [ "Sworn Enemy" ],
 		"deadlyPoison": [ "No Alli"],
 		"rejuvenation": [ "Rejuvenation" ]
+	},
+	"blacklist" : {
+		"rejuFamily": [ "Rejuvenation", "W40_Angels", "Apostles of War" ]
 	}
 }

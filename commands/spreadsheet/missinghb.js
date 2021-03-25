@@ -69,7 +69,6 @@ module.exports = class playerCommand extends Command {
           if (data ) {
             let msgs = buildPlayerInfo(message, data, alliance)
             msgs.forEach( txt => {
-              console.log(txt.length);
               return txt ? message.channel.send(txt) : undefined
             })
           } else {
